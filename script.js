@@ -123,28 +123,21 @@ function init() {
   outLine.addEventListener("click", extractAndDrawEdges);
   function extractAndDrawEdges() {
     if (!object1) return;
-
     // 2D キャンバスをクリア
     ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
     ctx2.drawImage(img, 0, 0, canvas2.width, canvas2.height);
-
     // モデルの回転が反映されたジオメトリを取得
     const geometry = object1.children[0].geometry;
-
     // オブジェクトの回転を反映させるための回転行列を生成
     const rotationMatrix = new THREE.Matrix4().makeRotationZ(
       object1.rotation.z
     );
-
     // ジオメトリのコピーを作成（オリジナルを変更しない）
     const rotatedGeometry = geometry.clone();
-
     // 回転行列をジオメトリに適用（ジオメトリのコピーに回転を適用）
     rotatedGeometry.applyMatrix4(rotationMatrix);
-
     // エッジの抽出
     const edges = new THREE.EdgesGeometry(rotatedGeometry);
-
     // エッジの頂点を 2D 座標に変換
     const positions = edges.attributes.position.array;
     for (let i = 0; i < positions.length; i += 6) {
@@ -158,7 +151,6 @@ function init() {
         positions[i + 4],
         positions[i + 5]
       );
-
       // スクリーン座標に変換
       const startProjected = start.clone().project(camera1);
       const endProjected = end.clone().project(camera1);
@@ -172,7 +164,6 @@ function init() {
       ctx2.moveTo(startX, startY);
       ctx2.lineTo(endX, endY);
       ctx2.strokeStyle = "rgba(255, 165, 0, 0.1)";
-      // ctx2.strokeStyle = "orange";
       ctx2.lineWidth = 1;
       ctx2.stroke();
     }
