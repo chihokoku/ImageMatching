@@ -11,15 +11,28 @@
     <!-- objファイルを表示させるためのCDN -->
     <script src="https://unpkg.com/three@0.147.0/examples/js/loaders/OBJLoader.js"></script>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <label>3Dモデル読み込み</label><input type="file" id="fileInput" accept=".obj" />
-       <!-- 背景画像読み込み -->
-       <label>2D画像読み込み</label><input type="file" id="imageInput" accept="image/*" />
+      <label>3Dモデル読み込み</label
+      ><input type="file" id="fileInput" accept=".obj" />
+      <!-- 背景画像読み込み -->
+      <label>2D画像読み込み</label
+      ><input type="file" id="imageInput" accept="image/*" />
     </header>
     <div class="box1">
-      <h2>骨の長さを計算する画面</h2>
+      <h2>マッチング画面</h2>
       <canvas id="canvas1"></canvas>
+      <button id="rightButton">Right</button>
+      <button id="leftButton">Left</button>
+      <button id="rotateButton">rotate</button>
+      <button id="outLine">outLine</button>
+    </div>
+    <div class="box2">
+      <h2>輪郭チェック画面</h2>
+      <canvas id="canvas2" width="600" height="600"></canvas>
+    </div>
   </body>
 </html>
