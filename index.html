@@ -20,18 +20,60 @@
   </head>
   <body>
     <header>
-      <label>3Dモデル読み込み</label
-      ><input type="file" id="fileInput" accept=".obj" />
+      <label>femur:</label>
+      <input type="file" id="femurfileInput" accept=".obj" />
+      <label>tibia:</label>
+      <input type="file" id="tibiafileInput" accept=".obj" />
       <!-- 背景画像読み込み -->
       <label>2D画像読み込み</label
       ><input type="file" id="imageInput" accept="image/*" />
     </header>
-    <div class="box1">
+    <div class="matching">
       <h2>マッチング画面</h2>
       <canvas id="canvas1"></canvas>
-      <button id="rightButton">Right</button>
+      <!-- 大腿骨 -->
+      <div class="femur">
+        <h3>femur</h3>
+        <label>translation</label>
+        <label class="translationX">X:</label>
+        <input type="number" id="femurTranslationX" value="0" step="0.1" />
+        <label class="translationY">Y:</label>
+        <input type="number" id="femurTranslationY" value="0" step="0.1" />
+        <label class="translationZ">Z:</label>
+        <input type="number" id="femurTranslationZ" value="0" step="0.1" />
+        <button id="femurTranslation">translation</button><br />
+        <label>rotate</label>
+        <label class="rotateX">X:</label>
+        <input type="number" id="femurRotateX" value="0" step="0.1" />
+        <label class="rotateY">Y:</label>
+        <input type="number" id="femurRotateY" value="0" step="0.1" />
+        <label class="rotateZ">Z:</label>
+        <input type="number" id="femurRotateZ" value="0" step="0.1" />
+        <button id="femurRotate">rotate</button>
+      </div>
+      <!-- 脛骨 -->
+      <div class="tibia">
+        <h3>tibia</h3>
+        <label>translation</label>
+        <label class="translationX">X:</label>
+        <input type="number" id="tibiaTranslationX" value="0" step="1" />
+        <label class="translationY">Y:</label>
+        <input type="number" id="tibiaTranslationY" value="0" step="1" />
+        <label class="translationZ">Z:</label>
+        <input type="number" id="tibiaTranslationZ" value="0" step="1" />
+        <button id="tibiaTranslation">translation</button><br />
+        <label>rotate</label>
+        <label class="rotateX">X:</label>
+        <input type="number" id="tibiaRotateX" value="0" step="1" />
+        <label class="rotateY">Y:</label>
+        <input type="number" id="tibiaRotateY" value="0" step="1" />
+        <label class="rotateZ">Z:</label>
+        <input type="number" id="tibiaRotateZ" value="0" step="1" />
+        <button id="tibiaRotate">rotate</button>
+      </div>
+      <!-- <button id="rightButton">Right</button>
       <button id="leftButton">Left</button>
-      <button id="rotateButton">rotate</button>
+      <button id="rotateButton">rotate</button> -->
       <button id="outLine">outLine</button>
     </div>
     <div class="box2">
