@@ -10,6 +10,8 @@
     <script src="https://unpkg.com/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
     <!-- objファイルを表示させるためのCDN -->
     <script src="https://unpkg.com/three@0.147.0/examples/js/loaders/OBJLoader.js"></script>
+    <!-- objファイルを出力させるためのCDN -->
+    <script src="https://unpkg.com/three@0.147.0/examples/js/exporters/OBJExporter.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
     <link rel="stylesheet" href="style.css" />
@@ -20,9 +22,9 @@
   </head>
   <body>
     <header>
-      <label>femur:</label>
+      <label>modelA:</label>
       <input type="file" id="femurfileInput" accept=".obj" />
-      <label>tibia:</label>
+      <label>modelB:</label>
       <input type="file" id="tibiafileInput" accept=".obj" />
       <!-- 背景画像読み込み -->
       <label>2D画像読み込み</label
@@ -32,8 +34,8 @@
       <h2>マッチング画面</h2>
       <canvas id="canvas1"></canvas>
       <!-- 大腿骨 -->
-      <div class="femur">
-        <h3>femur</h3>
+      <div class="model_A">
+        <h3>modelA</h3>
         <label>translation</label>
         <label class="translationX">X:</label>
         <input type="number" id="femurTranslationX" value="0" step="0.1" />
@@ -52,8 +54,8 @@
         <button id="femurRotate">rotate</button>
       </div>
       <!-- 脛骨 -->
-      <div class="tibia">
-        <h3>tibia</h3>
+      <div class="model_B">
+        <h3>modelB</h3>
         <label>translation</label>
         <label class="translationX">X:</label>
         <input type="number" id="tibiaTranslationX" value="0" step="1" />
@@ -75,6 +77,9 @@
       <button id="leftButton">Left</button>
       <button id="rotateButton">rotate</button> -->
       <button id="outLine">outLine</button>
+      <p>
+        <button id="export">Export</button>
+      </p>
     </div>
     <div class="box2">
       <h2>輪郭チェック画面</h2>

@@ -46,7 +46,7 @@ function init() {
   const canvas2 = document.getElementById("canvas2");
   const ctx2 = canvas2.getContext("2d");
 
-  // 大腿骨ファイル入力要素の取得
+  // 大腿骨ファイルの取得
   let femur;
   const femurfileInput = document.getElementById("femurfileInput");
   femurfileInput.addEventListener("change", function (event) {
@@ -220,6 +220,30 @@ function init() {
   //     object1.rotation.z += rotationAngle;
   //   }
   // });
+
+  // *********************************************************************
+  //                 　　ファイルマージプログラム
+  // *********************************************************************
+  const Export = document.getElementById("export");
+  Export.addEventListener("click", function (event) {
+    exportMergedOBJ(tibia, femur);
+  });
+
+  function exportMergedOBJ(modelA, modelB) {
+    const group = new THREE.Group();
+    group.add(modelA);
+    group.add(modelB);
+
+    const exporter = new THREE.OBJExporter();
+    const objOutput = exporter.parse(group);
+
+    // Blobとして保存（ブラウザ）
+    const blob = new Blob([objOutput], { type: "text/plain" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "merged_model.obj";
+    a.click();
+  }
 
   // 輪郭を抽出して 2D に描画する関数
   const outLine = document.getElementById("outLine");
